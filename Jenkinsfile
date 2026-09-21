@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-```
 environment {
     DOCKER_IMAGE = "pradita01/blue-green-node-app"
     BLUE_CONTAINER = "node-blue"
@@ -67,7 +66,7 @@ stages {
         steps {
             bat '''
                 powershell -Command "$response = Invoke-WebRequest -UseBasicParsing http://localhost:3002/health; if ($response.StatusCode -ne 200) { exit 1 }"
-            '''
+        '''
         }
     }
 
@@ -86,6 +85,5 @@ post {
         bat 'docker ps'
     }
 }
-```
 
 }
